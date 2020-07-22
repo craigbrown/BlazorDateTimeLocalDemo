@@ -1,0 +1,22 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+<div>
+    <input type="datetime-local" value=@dateTimeString @onchange=DateTimeChanged />
+</div>
+<div>
+    @changedText
+</div>
+
+@code {
+    private string dateTimeString = DateTime.Now.ToString("s");
+    private string changedText = "The date has not been changed.";
+
+    private void DateTimeChanged(ChangeEventArgs e)
+    {
+        dateTimeString = e.Value.ToString();
+        changedText = "The date was changed.";
+    }
+
+}
